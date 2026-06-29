@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ssl_rep_seg"
+version = "0.1.0"
+description = "Self-Supervised Representation Segmentation Visualization Protocol"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"} # Change this to your preferred license
+
+# Core dependencies required to make your package function
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision",
+    "torchaudio",
+    "tqdm",
+    "termcolor",
+    "scipy",
+    "timm",
+    "scikit-image",
+    "matplotlib",
+    "lightning",
+    "open_clip_torch",
+    "opencv-python",
+    "torchmetrics",
+    "pandas",
+    "seaborn",
+    "python-dotenv",
+    "wandb"
+]
+
+# Optional dependencies for users who want to train/log experiments
+[project.optional-dependencies]
+dev = [
+    "tensorboard",
+    "wandb",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

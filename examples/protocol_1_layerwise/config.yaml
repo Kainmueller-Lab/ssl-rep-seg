@@ -1,0 +1,31 @@
+model:
+  type: dinov3
+  size: b                 # "b" → 12 layers, "l" → 24 layers
+  facet: token             # key | query | value | token
+  checkpoint_folder: cocostuff27_results/checkpoints/
+
+  # Training fingerprint — used together to resolve the checkpoint subfolder
+  # e.g. "cocostuff27_b_mae_k_l11_lr0.001_bs32_pca96-1"
+  training:
+    lr: 0.005
+    num_batch_pcainit: 96
+    sample_interval: 1
+    batch_size: 24          # also part of checkpoint naming conventio
+
+data:
+  root: /home/xiaoyan/Documents/Data/
+  name: cocostuff27
+  resize: [448,448]
+
+
+evaluation:
+  all_good_images: [64, 73, 77, 80, 90, 98, 101, 106,141, 318 ]
+  n_bins: 28  # 448/16
+  top_k: 8
+  gap_ratio: 0.4
+
+num_workers: 16
+batch_size: 8
+
+output:
+  save_path: dinov3_b_token_layerwise

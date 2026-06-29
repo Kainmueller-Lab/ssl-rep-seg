@@ -1,0 +1,19 @@
+model:
+  type: dinov3
+  size: b                 # "b" → 12 layers, "l" → 24 layers
+  facet: attn 
+ 
+data:
+  root: /home/xiaoyan/Documents/Data/
+  name: cocostuff27
+  resize: [448,448]
+
+
+
+
+
+num_workers: 16
+batch_size: 8
+
+output:
+  save_path: locality_bias

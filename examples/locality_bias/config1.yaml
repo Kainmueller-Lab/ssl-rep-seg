@@ -1,0 +1,15 @@
+data:
+  root: /home/xiaoyan/Documents/Data/
+  name: cocostuff27
+  resize: [448,448]
+
+
+evaluation:
+  all_good_images: [26 ,64 ,82 ,87 ]
+
+
+num_workers: 16
+batch_size: 8
+
+output:
+  save_path: locality_bias
