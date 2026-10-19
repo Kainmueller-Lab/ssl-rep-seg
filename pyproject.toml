@@ -8,13 +8,12 @@ version = "0.1.0"
 description = "Self-Supervised Representation Segmentation Visualization Protocol"
 readme = "README.md"
 requires-python = ">=3.11"
-license = {text = "MIT"} # Change this to your preferred license
+license = "Apache-2.0" 
 
 # Core dependencies required to make your package function
 dependencies = [
     "torch>=2.0.0",
     "torchvision",
-    "torchaudio",
     "tqdm",
     "termcolor",
     "scipy",

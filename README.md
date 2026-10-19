@@ -1,21 +1,26 @@
 # Unsupervised Semantic Segmentation Facilitates Model Understanding
 
-This is the official implementation of the paper [**Unsupervised Semantic Segmentation Facilitates Model Understanding**](https://arxiv.org/pdf/2605.29691).
+This is the official implementation of the ECCV 2026 paper paper [**Unsupervised Semantic Segmentation Facilitates Model Understanding**](https://arxiv.org/pdf/2605.29691).
 
 ---
 
 ## 🛠️ Installation
 
-### 1. Sync Submodules
+### 1. Clone the Repository
 
-Before setting up the environment, sync the submodules to ensure the `dinov3` folder contains the required code:
+Clone the repository together with the `dinov3` submodule:
 
 ```bash
-git submodule sync
+git clone --recurse-submodules https://github.com/Kainmueller-Lab/ssl-rep-seg
+cd ssl-rep-seg
+```
+
+If you already cloned without `--recurse-submodules`, run:
+
+```bash
 git submodule update --init --recursive
 ```
 
-> **Note:** Make sure the `DINOv3` folder is in the same directory as `pretrained/`, so the DINOv3 backbone can be initialized correctly.
 
 ### 2. Environment Setup
 
@@ -24,8 +29,8 @@ Create and activate an isolated virtual environment using `mamba` (or `conda`):
 ```bash
 mamba create -n ssl_rep_seg python=3.11 -y
 mamba activate ssl_rep_seg
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-pip install ssl_rep_seg
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+pip install -e .
 ```
 
 ### 3. Pretrained Weights
@@ -35,8 +40,10 @@ We collect several SSL pretrained weights and rename them for convenience. Downl
 ```bash
 hf download xiaoyan-xyy/ssl_pretrained_backbones --local-dir pretrained
 ```
+> **Note:** `dinov3/` and `pretrained/` should both be in the repository root.
 
 ---
+
 
 ## 📦 Dataset
 
@@ -81,10 +88,12 @@ python -m examples.locality_bias.run2  # Locality bias MI calculation
 If you find this repository useful, please consider giving a star ⭐ and citing our work:
 
 ```bibtex
-@article{yu2026unsupervised,
+@inproceedings{yu2026unsupervised,
   title={Unsupervised Semantic Segmentation Facilitates Model Understanding},
-  author={Yu, Xiaoyan and Mais, Lisa and Franzen, Jannik and Hirsch, Peter and Lechtenb{\"o}rger, Nick and Mardt, Andreas and Kainm{\"u}ller, Dagmar},
-  journal={arXiv preprint arXiv:2605.29691},
-  year={2026}
+  author={Yu, Xiaoyan and Franzen, Jannik and Mais, Lisa and Hirsch, Peter and Lechtenboerger, Nick and Mardt, Andreas and Kainmueller, Dagmar},
+  booktitle={European Conference on Computer Vision},
+  pages={502--519},
+  year={2026},
+  organization={Springer}
 }
 ```
